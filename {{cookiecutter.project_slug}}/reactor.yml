@@ -14,6 +14,7 @@ docker: {}
 # Helm chart projects (map of charts)
 #
 # {chart_name}:
+#   app: argocd_app_name (name field in info.yml)
 #   remote: (https://|git@)example.com(/|:)project.git
 #   reference: (branch|tag)
 #   chart_dir: relative_path/to/chart
