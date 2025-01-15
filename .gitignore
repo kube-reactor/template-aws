@@ -1,24 +1,10 @@
-### Linux template
-*~
+### Ignore anything not listed
+*
 
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-### VisualStudioCode template
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-### macOS template
-# General
-*.DS_Store
-.AppleDouble
-.LSOverride
-
-# Project directories
-tmp/
+### Explicitly allow folders
+!.gitignore
+!.circleci/
+!cookiecutter.json
+!{{cookiecutter.project_slug}}/
+!hooks/
+!README.md
