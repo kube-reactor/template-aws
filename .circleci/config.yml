@@ -19,7 +19,7 @@ bootstrap: &bootstrap
 session: &session
     name: Test Docker image
     command:
-        /tmp/reactor/bin/reactor test --defaults
+        /tmp/reactor/bin/reactor test --name=test --debug
 
 session_env: &session_env
     REACTOR_NO_DOCKER: true
