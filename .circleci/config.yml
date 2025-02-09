@@ -17,7 +17,7 @@ bootstrap: &bootstrap
         /tmp/reactor/install.sh
 
 session: &session
-    name: Test Docker image
+    name: Test Project Cluster
     command:
         /tmp/reactor/bin/reactor test --name=test --debug
 
