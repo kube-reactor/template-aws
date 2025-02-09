@@ -1,5 +1,8 @@
-name: "{{cookiecutter.project_name}}"
-short_name: "{{cookiecutter.project_slug}}"
+name: "Development Platform"
+short_name: "dev-platform"
+domain:
+    local: nexical.local
+    prod: dev.nexical.ai
 #
 # Docker image projects (map of images)
 #
@@ -32,4 +35,13 @@ charts: {}
 #   remote: (https://|git@)example.com(/|:)project.git
 #   reference: (branch|tag)
 #
-extensions: {}
+extensions:
+    aws_state:
+        remote: https://github.com/kube-reactor/extension-aws-state.git
+        reference: main
+    aws_eks:
+        remote: https://github.com/kube-reactor/extension-aws-eks.git
+        reference: main
+    cloudflare_dns:
+        remote: https://github.com/kube-reactor/extension-cloudflare-dns.git
+        reference: main

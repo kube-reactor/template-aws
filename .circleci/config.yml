@@ -10,35 +10,27 @@ ubuntu_arm64: &ubuntu_arm64
     machine:
         image: ubuntu-2404:current
 
-install_reactor: &install_reactor
-    name: Install reactor framework
-    command: |
-        git clone https://github.com/kube-reactor/core.git /tmp/reactor
-        echo 'export PATH=/tmp/reactor/scripts:${PATH}' >> $BASH_ENV
-
 bootstrap: &bootstrap
     name: Bootstrap test OS
-    command: /tmp/reactor/tests/bootstrap.sh
+    command: |
+        git clone --depth 1 --branch cicd_fixes https://github.com/kube-reactor/core.git /tmp/reactor
+        /tmp/reactor/install.sh
 
 session: &session
     name: Test Docker image
-    command: /tmp/reactor/tests/run_session.sh
+    command:
+        /tmp/reactor/bin/reactor test --defaults
 
 session_env: &session_env
-    REACTOR_PARENT_IMAGE: ubuntu:22.04
+    REACTOR_NO_DOCKER: true
+    REACTOR_SHELL_OUTPUT: true
+
     MINIKUBE_CPUS: 2
     MINIKUBE_MEMORY: 4096
-    PROJECT_TEMPLATE_DIRECTORY: ./
-
-dump_log: &dump_log
-    name: Dump reactor command log
-    when: always
-    command: test ! -f ./logs/reactor.log || cat ./logs/reactor.log
 
 test_bash: &test_bash
     steps:
         - checkout
-        - run: *install_reactor
         - run:
             <<: *bootstrap
             shell: /usr/bin/bash
@@ -47,7 +39,6 @@ test_bash: &test_bash
             <<: *session
             shell: /usr/bin/bash
             environment: *session_env
-        - run: *dump_log
 
 jobs:
     test-amd64-ubuntu-bash:

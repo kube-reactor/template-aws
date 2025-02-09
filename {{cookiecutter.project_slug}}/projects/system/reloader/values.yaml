@@ -1,2 +1,7 @@
+#
+# ArtifactHub: https://artifacthub.io/packages/helm/stakater/reloader
+# GitHub: https://github.com/stakater/Reloader/tree/master/deployments/kubernetes/chart/reloader
+# Default Values: https://github.com/stakater/Reloader/blob/master/deployments/kubernetes/chart/reloader/values.yaml
+#
 reloader:
-  namespaceSelector: "reloader-enabled:true"
+    namespaceSelector: "reloader-enabled:true"
