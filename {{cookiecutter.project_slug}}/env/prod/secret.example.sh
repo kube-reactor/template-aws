@@ -10,18 +10,18 @@ export AWS_ACCOUNT_ID=""
 #
 # ArgoCD environment variables
 #
-export ARGOCD_SERVER_SECRET="99009900990099"
-export ARGOCD_ADMIN_PASSWORD="admin"
+export ARGOCD_SERVER_SECRET="{long_secret_key}"
+export ARGOCD_ADMIN_PASSWORD="{strong_password}"
 
 #
 # Grafana environment variables
 #
-export GRAFANA_ADMIN_PASSWORD="YzhlajFwQXFwbzVZcDF6YXBpelpIWVg2U3FSREJYd0F4SEZYcFVFVg=="
+export GRAFANA_ADMIN_PASSWORD="{strong_password}"
 
 #
 # Qdrant environment variables
 #
-export QDRANT_PASSWORD="999999999"
+export QDRANT_PASSWORD="{strong_password}"
 
 #
 # Cloudflare environment variables

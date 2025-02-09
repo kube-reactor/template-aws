@@ -1,16 +1,15 @@
 #
 # ArgoCD environment variables
 #
-export ARGOCD_SERVER_SECRET="999999999"
-export ARGOCD_ADMIN_PASSWORD="admin"
+export ARGOCD_SERVER_SECRET="{secret_key}"
+export ARGOCD_ADMIN_PASSWORD="{password}"
 
 #
 # Grafana environment variables
 #
-export GRAFANA_ADMIN_USER="admin"
-export GRAFANA_ADMIN_PASSWORD="YzhlajFwQXFwbzVZcDF6YXBpelpIWVg2U3FSREJYd0F4SEZYcFVFVg==" # admin
+export GRAFANA_ADMIN_PASSWORD="{password}"
 
 #
 # Qdrant environment variables
 #
-export QDRANT_PASSWORD="999999999"
+export QDRANT_PASSWORD="{password}"
