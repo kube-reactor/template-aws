@@ -1,0 +1,7 @@
+enabled: ["prod"]
+
+name: longhorn
+namespace: longhorn-system
+repository: "https://charts.longhorn.io"
+chart: "longhorn"
+version: 1.4.1

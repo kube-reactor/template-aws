@@ -1,0 +1,8 @@
+enabled: ["prod"]
+
+name: cert-issuer
+namespace: cert-manager
+namespace_exists: true
+repository: "https://charts.loft.sh"
+chart: "cert-issuer"
+version: 0.0.4

@@ -1,0 +1,33 @@
+#
+# ArtifactHub: https://artifacthub.io/packages/helm/bitnami/nginx-ingress-controller
+# GitHub: https://github.com/bitnami/charts/tree/main/bitnami/nginx-ingress-controller
+# Default Values: https://github.com/bitnami/charts/blob/main/bitnami/nginx-ingress-controller/values.yaml
+#
+replicaCount: 1
+
+ingressClassResource:
+    name: nginx
+    controllerClass: "k8s.io/ingress-nginx-ui"
+
+resources:
+    requests:
+        cpu: "100m"
+        memory: "128Mi"
+    limits:
+        cpu: "150m"
+        memory: "192Mi"
+
+defaultBackend:
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"
+
+service:
+    type: NodePort
+
+    nodePorts:
+        https: ${GATEWAY_NODE_PORT}

@@ -1,0 +1,16 @@
+#
+# ArtifactHub: https://artifacthub.io/packages/helm/loft/cert-issuer
+# GitHub: https://github.com/loft-sh/cert-issuer/tree/master/chart
+# Default Values: https://github.com/loft-sh/cert-issuer/blob/master/chart/values.yaml
+#
+certIssuer:
+    email: "${ISSUER_EMAIL}"
+    name: nginx-ssl
+    secretName: nginx-ssl
+    server: https://acme-v02.api.letsencrypt.org/directory
+    httpResolver:
+        enabled: false
+    resolvers:
+        - http01:
+              ingress:
+                  ingressClassName: nginx

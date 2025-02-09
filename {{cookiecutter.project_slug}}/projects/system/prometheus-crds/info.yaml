@@ -1,0 +1,10 @@
+enabled: ["all"]
+
+name: prometheus-operator-crds
+repository: "https://prometheus-community.github.io/helm-charts"
+chart: "prometheus-operator-crds"
+version: 17.0.0
+
+sync_replace: true
+sync_rerver_side_apply: true
+self_heal: true

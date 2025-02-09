@@ -1,0 +1,8 @@
+enabled: ["prod"]
+
+name: updater
+namespace: argocd
+namespace_exists: true
+repository: "https://argoproj.github.io/argo-helm"
+chart: argocd-image-updater
+version: 0.12.0

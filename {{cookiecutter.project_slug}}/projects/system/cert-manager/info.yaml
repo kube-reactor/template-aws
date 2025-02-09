@@ -1,0 +1,6 @@
+enabled: ["prod"]
+
+name: cert-manager
+repository: "https://charts.jetstack.io"
+chart: "cert-manager"
+version: 1.13.2

@@ -1,0 +1,8 @@
+enabled: ["prod"]
+
+name: longhorn-os
+namespace: longhorn-system
+namespace_exists: true
+repository: "https://github.com/kube-reactor/extension-aws-eks"
+path: k8s-resources
+version: HEAD

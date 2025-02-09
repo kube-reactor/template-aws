@@ -1,0 +1,53 @@
+#
+# ArtifactHub: https://artifacthub.io/packages/helm/cert-manager/cert-manager
+# GitHub: https://github.com/cert-manager/cert-manager/tree/master/deploy/charts/cert-manager
+# Default Values: https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
+#
+installCRDs: true
+
+nodeSelector:
+    node-role: system
+
+resources:
+    requests:
+        cpu: "100m"
+        memory: "128Mi"
+    limits:
+        cpu: "150m"
+        memory: "192Mi"
+
+webhook:
+    nodeSelector:
+        node-role: system
+
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"
+
+cainjector:
+    nodeSelector:
+        node-role: system
+
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"
+
+startupapicheck:
+    nodeSelector:
+        node-role: system
+
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"

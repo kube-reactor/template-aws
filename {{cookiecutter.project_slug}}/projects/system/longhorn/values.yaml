@@ -1,0 +1,54 @@
+#
+# ArtifactHub: https://artifacthub.io/packages/helm/longhorn/longhorn
+# GitHub: https://github.com/longhorn/longhorn/tree/master/chart
+# Default Values: https://github.com/longhorn/longhorn/blob/master/chart/values.yaml
+#
+enablePSP: false
+
+persistence:
+    defaultClass: false
+
+global:
+    cattle:
+        defaultSettings:
+            systemManagedComponentsNodeSelector: node-role:system
+
+longhornUI:
+    nodeSelector:
+        node-role: system
+
+    replicas: 1
+
+longhornAdmissionWebhook:
+    nodeSelector:
+        node-role: system
+
+    replicas: 1
+
+longhornRecoveryBackend:
+    nodeSelector:
+        node-role: system
+
+    replicas: 1
+
+longhornConversionWebhook:
+    nodeSelector:
+        node-role: system
+
+    replicas: 1
+
+preUpgradeChecker:
+    jobEnabled: false
+
+ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+        cert-manager.io/cluster-issuer: nginx-ssl
+    host: "longhorn.${OPERATIONS_DOMAIN}"
+    tls: true
+    tlsSecret: longhorn-tls
+
+metrics:
+    serviceMonitor:
+        enabled: true
