@@ -26,5 +26,5 @@ export QDRANT_PASSWORD="{strong_password}"
 #
 # Cloudflare environment variables
 #
-export CLOUDFLARE_DOMAIN="{{ cookiecutter.prod_domain }}"
+export CLOUDFLARE_DOMAIN="{{ cookiecutter.domain }}"
 export CLOUDFLARE_API_TOKEN="{{ cookiecutter.cloudflare_api_key }}"
