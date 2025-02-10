@@ -22,7 +22,6 @@ session: &session
         /tmp/reactor/bin/reactor test --name=test --debug
 
 session_env: &session_env
-    REACTOR_NO_DOCKER: true
     REACTOR_SHELL_OUTPUT: true
 
     MINIKUBE_CPUS: 2
