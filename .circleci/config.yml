@@ -22,8 +22,6 @@ session: &session
         /tmp/reactor/bin/reactor test --name=test --debug
 
 session_env: &session_env
-    REACTOR_SHELL_OUTPUT: true
-
     MINIKUBE_CPUS: 2
     MINIKUBE_MEMORY: 6144
 
