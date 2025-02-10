@@ -16,7 +16,7 @@ export ARGOCD_PROJECT_SEQUENCE='[
 #
 # Cluster environment configurations
 #
-export GATEWAY_NODE_PORT="32210"
+export GATEWAY_NODE_PORT="{{ cookiecutter.ingress_node_port }}"
 
 #
 # Qdrant environment variables
@@ -29,11 +29,12 @@ export QDRANT_MAX_REQUEST_SIZE_MB="1000"
 #
 export PROVISIONER_PROVIDER=terraform
 export KUBERNETES_PROVIDER=minikube
+export DNS_PROVIDER=host
 
 #
 # Cert-Manager
 #
-export ISSUER_EMAIL="hello@fractalsynapse.com"
+export ISSUER_EMAIL="{{ cookiecutter.admin_email }}"
 
 #
 # Grafana environment variables

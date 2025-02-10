@@ -1,12 +1,12 @@
 #
 # AWS environment variables
 #
-export AWS_STATE_BUCKET_NAME="fractalsynapse-${APP_NAME}"
+export AWS_STATE_BUCKET_NAME="{{ cookiecutter.organization }}-${APP_NAME}"
 
 export AWS_TERRAFORM_USER="TerraformDeployer"
 
-export AWS_PRIMARY_REGION="us-east-1"
-export AWS_SECONDARY_REGION="us-west-1"
+export AWS_PRIMARY_REGION="{{ cookiecutter.primary_aws_region }}"
+export AWS_SECONDARY_REGION="{{ cookiecutter.secondary_aws_region }}"
 export AWS_EKS_REGION="$AWS_PRIMARY_REGION"
 
 export AWS_VPC_CIDR="10.10.0.0/16"
@@ -32,11 +32,6 @@ export AWS_ECR_REPOSITORIES="{
     \"tags\": {}
   }
 }"
-
-#
-# Kubernetes environment configurations
-#
-export GATEWAY_NODE_PORT="32210"
 
 #
 # Subdomains
@@ -71,7 +66,7 @@ export DNS_PROVIDER=cloudflare
 #
 # Cert-Manager
 #
-export ISSUER_EMAIL="erik@fractalsynapse.com"
+export ISSUER_EMAIL="{{ cookiecutter.admin_email }}"
 
 #
 # Grafana environment variables

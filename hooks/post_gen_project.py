@@ -5,7 +5,6 @@ NOTE:
 
     * It managed the OS license and community files
     * It sets local environment variables
-
 """
 
 import os

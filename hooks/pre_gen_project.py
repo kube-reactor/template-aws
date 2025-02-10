@@ -5,7 +5,6 @@ NOTE:
 
     * It sets local environment variables
     * It managed the OS license and community files
-
 """
 
 TERMINATOR = "\x1b[0m"
@@ -18,7 +17,15 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 # It updates the cookiecutter context to trim leading and trailing spaces
 # from values
 """
+{{ cookiecutter.update({ "organization": cookiecutter.organization | trim }) }}
+{{ cookiecutter.update({ "domain": cookiecutter.domain | trim }) }}
+{{ cookiecutter.update({ "admin_email": cookiecutter.admin_email | trim }) }}
 {{ cookiecutter.update({ "ingress_node_port": cookiecutter.ingress_node_port | trim }) }}
+{{ cookiecutter.update({ "primary_aws_region": cookiecutter.primary_aws_region | trim }) }}
+{{ cookiecutter.update({ "secondary_aws_region": cookiecutter.secondary_aws_region | trim }) }}
+{{ cookiecutter.update({ "aws_access_key": cookiecutter.aws_access_key | trim }) }}
+{{ cookiecutter.update({ "aws_secret_key": cookiecutter.aws_secret_key | trim }) }}
+{{ cookiecutter.update({ "cloudflare_api_key": cookiecutter.cloudflare_api_key | trim }) }}
 """
 
 project_slug = "{{ cookiecutter.project_slug }}"
