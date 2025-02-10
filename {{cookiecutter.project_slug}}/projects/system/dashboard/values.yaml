@@ -19,6 +19,9 @@ app:
             secretName: dashboard-tls
 
 auth:
+    nodeSelector:
+        node-role: ops
+
     scaling:
         replicas: 1
         revisionHistoryLimit: 2
@@ -33,6 +36,9 @@ auth:
                 memory: 400Mi
 
 api:
+    nodeSelector:
+        node-role: ops
+
     scaling:
         replicas: 1
         revisionHistoryLimit: 2
@@ -47,6 +53,9 @@ api:
                 memory: 400Mi
 
 web:
+    nodeSelector:
+        node-role: ops
+
     scaling:
         replicas: 1
         revisionHistoryLimit: 2
@@ -61,6 +70,9 @@ web:
                 memory: "192Mi"
 
 metricsScraper:
+    nodeSelector:
+        node-role: ops
+
     scaling:
         replicas: 1
         revisionHistoryLimit: 2

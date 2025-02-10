@@ -19,26 +19,18 @@ config:
     logLevel: info
 
     registries:
-        []
-        # - name: "Amazon ECR"
-        #   api_url: "https://${AWS_ECR_REGISTRY_DOMAIN}"
-        #   prefix: "${AWS_ECR_REGISTRY_DOMAIN}"
-        #   credentials: ext:/scripts/aws-ecr-login.sh
-        #   credsexpire: 11h59m
-        #   default: true
-        #   insecure: false
-        #   ping: true
+        - name: "Amazon ECR"
+          api_url: "https://${AWS_ECR_REGISTRY_DOMAIN}"
+          prefix: "${AWS_ECR_REGISTRY_DOMAIN}"
+          credentials: ext:/scripts/aws-ecr-login.sh
+          credsexpire: 11h59m
+          default: true
+          insecure: false
+          ping: true
 
-        # - name: "Digital Ocean"
-        #   credentials: pullsecret:argocd/digitalocean-registry
-        #   ping: no
-        #   api_url: "https://${DIGITALOCEAN_REGISTRY_DOMAIN}"
-        #   prefix: ${DIGITALOCEAN_REGISTRY_DOMAIN}
-        #   defaultns: library
-
-    # authScripts:
-    #   enabled: true
-    #   scripts:
-    #     aws-ecr-login.sh: |
-    #       #!/bin/sh
-    #       aws ecr --region "${AWS_PRIMARY_REGION}" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
+    authScripts:
+      enabled: true
+      scripts:
+        aws-ecr-login.sh: |
+          #!/bin/sh
+          aws ecr --region "${AWS_PRIMARY_REGION}" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d

@@ -5,27 +5,6 @@
 #
 deploymentMode: SingleBinary
 
-singleBinary:
-    replicas: 1
-
-    persistence:
-        enabled: true
-        enableStatefulSetAutoDeletePVC: true
-        storageClass: longhorn
-    extraVolumeMounts:
-        - name: loki-working-directory
-          mountPath: /opt/working_directory
-    extraVolumes:
-        - name: loki-working-directory
-          emptyDir: {}
-    resources:
-        limits:
-            cpu: 1000m
-            memory: 2Gi
-        requests:
-            cpu: 250m
-            memory: 512Mi
-
 backend:
     replicas: 0
 read:
@@ -68,6 +47,27 @@ gateway:
     affinity:
         podAntiAffinity:
             requiredDuringSchedulingIgnoredDuringExecution: []
+
+singleBinary:
+    replicas: 1
+
+    persistence:
+        enabled: true
+        enableStatefulSetAutoDeletePVC: true
+        storageClass: standard
+    extraVolumeMounts:
+        - name: loki-working-directory
+          mountPath: /opt/working_directory
+    extraVolumes:
+        - name: loki-working-directory
+          emptyDir: {}
+    resources:
+        limits:
+            cpu: 1000m
+            memory: 2Gi
+        requests:
+            cpu: 250m
+            memory: 512Mi
 
 monitoring:
     selfMonitoring:
