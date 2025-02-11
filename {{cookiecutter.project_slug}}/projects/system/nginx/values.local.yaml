@@ -27,7 +27,10 @@ defaultBackend:
             memory: "192Mi"
 
 service:
-    type: NodePort
+    type: LoadBalancer
 
-    nodePorts:
-        https: ${GATEWAY_NODE_PORT}
+    ports:
+        https: 443
+
+    targetPort:
+        http: http
