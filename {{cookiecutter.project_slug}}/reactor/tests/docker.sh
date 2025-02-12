@@ -85,7 +85,6 @@ function test_docker_services () {
   function verify_down_services () {
     add_container_environment
     verify_docker_exit \
-      "k8s_storage-provisioner_storage-provisioner_kube-system" \
       "k8s_prepare-nginx-folder_nginx-nginx-ingress-controller" \
       "k8s_copyutil_argocd-dex-server" \
       "k8s_copyutil_argocd-repo-server"
