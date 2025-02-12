@@ -37,9 +37,8 @@ function test_docker_images () {
 }
 
 function test_docker_services () {
-  function verify_core_services () {
+  function verify_up_services () {
     add_container_environment
-
     verify_docker_up \
       "k8s_coredns_coredns" \
       "k8s_POD_coredns" \
@@ -81,14 +80,19 @@ function test_docker_services () {
       "k8s_POD_argocd-notifications-controller" \
       "k8s_reloader-reloader_reloader-reloader" \
       "k8s_POD_reloader-reloader"
+  }
 
+  function verify_down_services () {
+    add_container_environment
     verify_docker_exit \
       "k8s_storage-provisioner_storage-provisioner_kube-system" \
       "k8s_prepare-nginx-folder_nginx-nginx-ingress-controller" \
       "k8s_copyutil_argocd-dex-server" \
       "k8s_copyutil_argocd-repo-server"
   }
-  wait verify_core_services 120
+
+  wait verify_up_services 120
+  wait verify_down_services 120
 }
 
 function test_local_running () {
