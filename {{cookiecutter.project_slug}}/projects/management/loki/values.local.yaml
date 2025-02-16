@@ -3,6 +3,9 @@
 # GitHub: https://github.com/grafana/loki/tree/main/production/helm/loki
 # Default Values: https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml
 #
+global:
+   clusterDomain: "${PRIMARY_DOMAIN}"
+
 deploymentMode: SingleBinary
 
 backend:
@@ -149,4 +152,4 @@ extraObjects:
           resources:
               requests:
                   storage: 10Gi
-          storageClassName: longhorn
+          storageClassName: standard
