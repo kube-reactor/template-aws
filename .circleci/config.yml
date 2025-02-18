@@ -16,7 +16,7 @@ bootstrap: &bootstrap
 
 session: &session
     name: Test Project Cluster
-    command: /tmp/reactor/bin/reactor test --name=test --cicd --debug
+    command: /tmp/reactor/bin/reactor test --name=test --debug
 
 session_env: &session_env
     MINIKUBE_CPUS: 2
