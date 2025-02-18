@@ -42,6 +42,6 @@ extensions:
     aws_eks:
         remote: https://github.com/kube-reactor/extension-aws-eks.git
         reference: 0.1.1
-    godaddy_dns:
-        remote: https://github.com/kube-reactor/extension-godaddy-dns.git
+    cloudflare_dns:
+        remote: https://github.com/kube-reactor/extension-cloudflare-dns.git
         reference: 0.1.0
