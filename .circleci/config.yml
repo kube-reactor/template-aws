@@ -12,14 +12,11 @@ ubuntu_arm64: &ubuntu_arm64
 
 bootstrap: &bootstrap
     name: Bootstrap test OS
-    command: |
-        git clone --depth 1 https://github.com/kube-reactor/core.git /tmp/reactor
-        /tmp/reactor/install.sh
+    command: git clone --depth 1 https://github.com/kube-reactor/core.git /tmp/reactor
 
 session: &session
     name: Test Project Cluster
-    command:
-        /tmp/reactor/bin/reactor test --name=test --cicd --debug
+    command: /tmp/reactor/bin/reactor test --name=test --cicd --debug
 
 session_env: &session_env
     MINIKUBE_CPUS: 2
