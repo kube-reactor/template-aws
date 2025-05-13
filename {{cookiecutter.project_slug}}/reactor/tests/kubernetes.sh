@@ -13,8 +13,8 @@
 function test_kubernetes_status () {
   function verify_core_status () {
     run kubectl cluster-info
-    verify_output "\s*Kubernetes control plane.+\s+is running\s+"
-    verify_output "\s*CoreDNS.+\s+is running\s+"
+    verify_output "\s*Kubernetes control plane\s+is running\s+"
+    verify_output "\s*CoreDNS\s+is running\s+"
   }
   wait verify_core_status 10
 }
