@@ -1,8 +1,8 @@
 name: "{{ cookiecutter.project_name }}"
-short_name: "{{ cookiecutter.project_slug }}"
+short_name: "{{ cookiecutter.__project_key }}"
 domain:
-    local: "{{ cookiecutter.project_slug }}.local"
-    prod: "{{ cookiecutter.domain }}"
+  local: "{{ cookiecutter.__project_key }}.local"
+  prod: "{{ cookiecutter.domain }}"
 #
 # Docker image projects (map of images)
 #
@@ -36,12 +36,12 @@ charts: {}
 #   reference: (branch|tag)
 #
 extensions:
-    aws_state:
-        remote: https://github.com/kube-reactor/extension-aws-state.git
-        reference: 0.1.0
-    aws_eks:
-        remote: https://github.com/kube-reactor/extension-aws-eks.git
-        reference: 0.1.2
-    cloudflare_dns:
-        remote: https://github.com/kube-reactor/extension-cloudflare-dns.git
-        reference: 0.1.0
+  aws_state:
+    remote: https://github.com/kube-reactor/extension-aws-state.git
+    reference: 0.1.0
+  aws_eks:
+    remote: https://github.com/kube-reactor/extension-aws-eks.git
+    reference: 0.1.2
+  cloudflare_dns:
+    remote: https://github.com/kube-reactor/extension-cloudflare-dns.git
+    reference: 0.1.0

@@ -1,39 +1,38 @@
 {
-    "project_name": "Base AWS EKS Cluster",
-    "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
-    "organization": "{{ cookiecutter.project_slug }}",
-    "domain": "{{ cookiecutter.project_slug }}.prod",
-    "admin_email": "nobody@{{ cookiecutter.project_slug }}.prod",
-    "ingress_node_port": "32210",
-    "primary_aws_region": "us-east-1",
-    "secondary_aws_region": "us-west-1",
-    "aws_access_key": "",
-    "aws_secret_key": "",
-    "cloudflare_api_key": "",
-    "open_source_license": ["apache2", "none"],
-    "__prompts__": {
-        "project_name": "Cluster project human readable name",
-        "project_slug": "Project short name (lowercase alphanumeric and underscores only)",
-        "organization": "Organization name used for S3 naming and GitHub repository management (lowercase alphanumeric and underscores only)",
-        "domain": "Top level production domain (must match DNS Cloudflare zone)",
-        "admin_email": "Administor email address",
-        "ingress_node_port": "Primary host ingress node port",
-        "primary_aws_region": "Primary AWS region for remote state, EKS, and ECR",
-        "secondary_aws_region": "Secondary AWS region for remote state replica",
-        "aws_access_key": "AWS API access key",
-        "aws_secret_key": "AWS API secret access key",
-        "cloudflare_api_key": "Cloudflare DNS API key",
-        "open_source_license": {
-            "__prompt__": "Include open source license?",
-            "apache2": "Apache Software License 2.0",
-            "none": "Not open source"
-        }
-    },
-    "_copy_without_render": [
-        "argocd",
-        "projects",
-        "reactor",
-        ".gitignore",
-        ".github"
-    ]
+  "project_name": "AWS EKS Cluster",
+  "__project_key": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "organization": "{{ cookiecutter.__project_key }}",
+  "domain": "{{ cookiecutter.__project_key }}.prod",
+  "admin_email": "nobody@{{ cookiecutter.__project_key }}.prod",
+  "ingress_node_port": "32210",
+  "primary_aws_region": "us-east-1",
+  "secondary_aws_region": "us-west-1",
+  "aws_access_key": "",
+  "aws_secret_key": "",
+  "cloudflare_api_key": "",
+  "open_source_license": ["apache2", "none"],
+  "__prompts__": {
+    "project_name": "Cluster project human readable name",
+    "organization": "Organization name used for S3 naming and GitHub repository management (lowercase alphanumeric and underscores only)",
+    "domain": "Top level production domain (must match DNS Cloudflare zone)",
+    "admin_email": "Administor email address",
+    "ingress_node_port": "Primary host ingress node port",
+    "primary_aws_region": "Primary AWS region for remote state, EKS, and ECR",
+    "secondary_aws_region": "Secondary AWS region for remote state replica",
+    "aws_access_key": "AWS API access key",
+    "aws_secret_key": "AWS API secret access key",
+    "cloudflare_api_key": "Cloudflare DNS API key",
+    "open_source_license": {
+      "__prompt__": "Include open source license?",
+      "apache2": "Apache Software License 2.0",
+      "none": "Not open source"
+    }
+  },
+  "_copy_without_render": [
+    "argocd",
+    "projects",
+    "reactor",
+    ".gitignore",
+    ".github"
+  ]
 }
