@@ -1,4 +1,4 @@
-enabled: ["prod"]
+enabled: ["prod", "staging"]
 
 name: cert-issuer
 namespace: cert-manager

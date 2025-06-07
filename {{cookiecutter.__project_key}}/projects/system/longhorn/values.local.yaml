@@ -3,17 +3,15 @@
 # GitHub: https://github.com/longhorn/longhorn/tree/master/chart
 # Default Values: https://github.com/longhorn/longhorn/blob/master/chart/values.yaml
 #
-global:
-  nodeSelector:
-    node-role: storage
+global: {}
 
 defaultSettings:
-  systemManagedComponentsNodeSelector: "node-role:storage"
+  defaultDataPath: "${__longhorn_volume_dir}"
   storageReservedPercentageForDefaultDisk: 5
-  defaultDataLocality: best-effort
 
 persistence:
   defaultClass: false
+  defaultClassReplicaCount: 1
 
 longhornManager: {}
 
@@ -29,11 +27,9 @@ preUpgradeChecker:
 ingress:
   enabled: true
   ingressClassName: nginx
-  annotations:
-    cert-manager.io/cluster-issuer: nginx-ssl
   host: "${STORAGE_DOMAIN}"
   tls: true
-  tlsSecret: longhorn-tls
+  tlsSecret: origin-cert
 
 metrics:
   serviceMonitor:

@@ -6,31 +6,31 @@
 replicaCount: 1
 
 ingressClassResource:
-    name: nginx
-    controllerClass: "k8s.io/ingress-nginx-ui"
+  name: nginx
+  controllerClass: "k8s.io/ingress-nginx-ui"
 
-resources:
-    requests:
-        cpu: "100m"
-        memory: "128Mi"
-    limits:
-        cpu: "150m"
-        memory: "192Mi"
+resources: {}
+#  requests:
+#    cpu: "100m"
+#    memory: "128Mi"
+#  limits:
+#    cpu: "150m"
+#    memory: "192Mi"
 
 defaultBackend:
-    resources:
-        requests:
-            cpu: "100m"
-            memory: "128Mi"
-        limits:
-            cpu: "150m"
-            memory: "192Mi"
+  resources: {}
+  #  requests:
+  #    cpu: "100m"
+  #    memory: "128Mi"
+  #  limits:
+  #    cpu: "150m"
+  #    memory: "192Mi"
 
 service:
-    type: LoadBalancer
+  type: LoadBalancer
 
-    ports:
-        https: 443
+  ports:
+    https: 443
 
-    targetPort:
-        http: http
+  targetPort:
+    http: http

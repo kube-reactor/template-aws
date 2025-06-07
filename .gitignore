@@ -1,12 +1,25 @@
-# Mac files
-.DS_Store
+### Linux template
+*~
 
-# Eclipse project files
-/.project
-/.pydevproject
-/.buildpath
-/.settings
+# KDE directory preferences
+.directory
 
-# VSCode files
-/.vscode
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+### VisualStudioCode template
 *.code-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### macOS template
+# General
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Project directories
+tmp/

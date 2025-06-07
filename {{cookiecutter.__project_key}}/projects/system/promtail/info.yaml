@@ -1,6 +1,0 @@
-enabled: ["all"]
-
-name: promtail
-repository: "https://grafana.github.io/helm-charts"
-chart: "promtail"
-version: 6.16.6

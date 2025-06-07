@@ -5,49 +5,51 @@
 #
 installCRDs: true
 
+featureGates: "ServerSideApply=true"
+
 nodeSelector:
-    node-role: system
+  node-role: system
 
 resources:
-    requests:
-        cpu: "100m"
-        memory: "128Mi"
-    limits:
-        cpu: "150m"
-        memory: "192Mi"
+  requests:
+    cpu: "10m"
+    memory: "32Mi"
+  limits:
+    cpu: "50m"
+    memory: "64Mi"
 
 webhook:
-    nodeSelector:
-        node-role: system
+  nodeSelector:
+    node-role: system
 
-    resources:
-        requests:
-            cpu: "100m"
-            memory: "128Mi"
-        limits:
-            cpu: "150m"
-            memory: "192Mi"
+  resources:
+    requests:
+      cpu: "10m"
+      memory: "32Mi"
+    limits:
+      cpu: "50m"
+      memory: "64Mi"
 
 cainjector:
-    nodeSelector:
-        node-role: system
+  nodeSelector:
+    node-role: system
 
-    resources:
-        requests:
-            cpu: "100m"
-            memory: "128Mi"
-        limits:
-            cpu: "150m"
-            memory: "192Mi"
+  resources:
+    requests:
+      cpu: "10m"
+      memory: "32Mi"
+    limits:
+      cpu: "50m"
+      memory: "64Mi"
 
 startupapicheck:
-    nodeSelector:
-        node-role: system
+  nodeSelector:
+    node-role: system
 
-    resources:
-        requests:
-            cpu: "100m"
-            memory: "128Mi"
-        limits:
-            cpu: "150m"
-            memory: "192Mi"
+  resources:
+    requests:
+      cpu: "10m"
+      memory: "32Mi"
+    limits:
+      cpu: "50m"
+      memory: "64Mi"

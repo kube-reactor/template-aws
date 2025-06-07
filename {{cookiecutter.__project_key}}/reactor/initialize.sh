@@ -2,6 +2,9 @@
 #=========================================================================================
 # Initialization
 #
-export OPERATIONS_DOMAIN="${OPERATIONS_SUBDOMAIN}.${PRIMARY_DOMAIN}"
-export AUTH_DOMAIN="${AUTH_SUBDOMAIN}.${PRIMARY_DOMAIN}"
-export ARGOCD_DOMAIN="argocd.${OPERATIONS_DOMAIN}"
+export __longhorn_volume_dir="${__cache_dir}/longhorn"
+
+export HOST_IP="$(hostname -I | cut -d' ' -f1)"
+export ARGOCD_DOMAIN="apps.${PRIMARY_DOMAIN}"
+export KUBE_DASHBOARD_DOMAIN="kube.${PRIMARY_DOMAIN}"
+export STORAGE_DOMAIN="storage.${PRIMARY_DOMAIN}"

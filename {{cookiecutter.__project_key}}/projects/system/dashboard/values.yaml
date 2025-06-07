@@ -4,84 +4,90 @@
 # Default Values: https://github.com/kubernetes/dashboard/blob/master/charts/kubernetes-dashboard/values.yaml
 #
 app:
-    scheduling:
-        nodeSelector:
-            node-role: ops
+  scheduling:
+    nodeSelector:
+      node-role: system
 
-    ingress:
-        enabled: true
-        ingressClassName: nginx
-        annotations:
-            cert-manager.io/cluster-issuer: nginx-ssl
-        hosts:
-            - "dashboard.${OPERATIONS_DOMAIN}"
-        tls:
-            secretName: dashboard-tls
+  ingress:
+    enabled: true
+    useDefaultAnnotations: true
+    ingressClassName: nginx
+    issuer:
+      scope: cluster
+      name: nginx-ssl
+    hosts:
+      - "${KUBE_DASHBOARD_DOMAIN}"
+    tls:
+      secretName: dashboard-tls
 
 auth:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    scaling:
-        replicas: 1
-        revisionHistoryLimit: 2
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 2
 
-    containers:
-        resources:
-            requests:
-                cpu: 100m
-                memory: 200Mi
-            limits:
-                cpu: 250m
-                memory: 400Mi
+  containers:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 400Mi
 
 api:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    scaling:
-        replicas: 1
-        revisionHistoryLimit: 2
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 2
 
-    containers:
-        resources:
-            requests:
-                cpu: 100m
-                memory: 200Mi
-            limits:
-                cpu: 250m
-                memory: 400Mi
+  containers:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 400Mi
 
 web:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    scaling:
-        replicas: 1
-        revisionHistoryLimit: 2
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 2
 
-    containers:
-        resources:
-            requests:
-                cpu: "100m"
-                memory: "128Mi"
-            limits:
-                cpu: "150m"
-                memory: "192Mi"
+  containers:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 400Mi
 
 metricsScraper:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    scaling:
-        replicas: 1
-        revisionHistoryLimit: 2
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 2
 
-    containers:
-        resources:
-            requests:
-                cpu: "100m"
-                memory: "128Mi"
-            limits:
-                cpu: "150m"
-                memory: "192Mi"
+  containers:
+    resources:
+      requests:
+        cpu: 100m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 400Mi
+
+kong:
+  nodeSelector:
+    node-role: system

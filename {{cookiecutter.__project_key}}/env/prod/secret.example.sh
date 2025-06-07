@@ -1,30 +1,46 @@
 #
 # AWS environment variables
 #
-export AWS_ACCESS_KEY_ID="{{ cookiecutter.aws_access_key }}"
-export AWS_SECRET_ACCESS_KEY="{{ cookiecutter.aws_secret_key }}"
-
-export AWS_STATE_KMS_KEY_ID=""
+# Root AWS account ID
 export AWS_ACCOUNT_ID=""
+
+# AWS Terraform state access key ID
+export AWS_STATE_ACCESS_KEY_ID=""
+# AWS Terraform state secret access key
+export AWS_STATE_SECRET_ACCESS_KEY=""
+
+# AWS access key ID
+export AWS_ACCESS_KEY_ID=""
+# AWS secret access key
+export AWS_SECRET_ACCESS_KEY=""
+
+# AWS provisioner state KMS key ID
+export AWS_STATE_KMS_KEY_ID=""
 
 #
 # ArgoCD environment variables
 #
-export ARGOCD_SERVER_SECRET="{long_secret_key}"
-export ARGOCD_ADMIN_PASSWORD="{strong_password}"
+# Production ArgoCD server secret
+export ARGOCD_SERVER_SECRET="999999999"
+# Development ArgoCD administrator password
+export ARGOCD_ADMIN_PASSWORD="999999999"
 
 #
 # Grafana environment variables
 #
-export GRAFANA_ADMIN_PASSWORD="{strong_password}"
+# Production Grafana administrator password
+export GRAFANA_ADMIN_PASSWORD="999999999"
 
 #
-# Qdrant environment variables
+# Cert-Manager
 #
-export QDRANT_PASSWORD="{strong_password}"
+# [template:contacts]: Certificate issuer support email
+export ISSUER_EMAIL="{{cookiecutter.issuer_email}}"
 
 #
 # Cloudflare environment variables
 #
-export CLOUDFLARE_DOMAIN="{{ cookiecutter.domain }}"
-export CLOUDFLARE_API_TOKEN="{{ cookiecutter.cloudflare_api_key }}"
+# [template:domain]: Production Cloudflare domain
+export CLOUDFLARE_DOMAIN="{{cookiecutter.cloudflare_domain}}"
+# Production Cloudflare API token
+export CLOUDFLARE_API_TOKEN=""

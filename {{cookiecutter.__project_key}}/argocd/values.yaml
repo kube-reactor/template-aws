@@ -4,101 +4,130 @@
 # Default Values: https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/values.yaml
 #
 configs:
-    cm:
-        create: false
-    secret:
-        createSecret: false
+  cm:
+    create: false
+  secret:
+    createSecret: false
 
-    params:
-        server.insecure: true
+  params:
+    server.insecure: true
+    dexserver.disable.tls: true
+
+  rbac:
+    policy.default: admin
 
 global:
-    domain: "${ARGOCD_DOMAIN}"
+  domain: "${ARGOCD_DOMAIN}"
 
 nodeSelector:
-    node-role: ops
+  node-role: system
 
 redis:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 128m
-            memory: 128Mi
-        requests:
-            cpu: 64m
-            memory: 64Mi
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+
 controller:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 256m
-            memory: 512Mi
-        requests:
-            cpu: 128m
-            memory: 256Mi
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
 
 dex:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 256m
-            memory: 512Mi
-        requests:
-            cpu: 64m
-            memory: 64Mi
+  resources:
+    limits:
+      cpu: 50m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
 
 server:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 256m
-            memory: 512Mi
-        requests:
-            cpu: 64m
-            memory: 64Mi
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
 
-    ingress:
-        enabled: true
-        ingressClassName: nginx
-        annotations:
-            cert-manager.io/cluster-issuer: nginx-ssl
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: nginx-ssl
+    hosts:
+      - "${ARGOCD_DOMAIN}"
+    paths:
+      - /
+    tls:
+      - secretName: argocd-tls
         hosts:
-            - "${ARGOCD_DOMAIN}"
-        paths:
-            - /
-        tls:
-            - secretName: argocd-tls
-              hosts:
-                  - "${ARGOCD_DOMAIN}"
+          - "${ARGOCD_DOMAIN}"
 
 repoServer:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 1
-            memory: 1Gi
-        requests:
-            cpu: 128m
-            memory: 64Mi
+  resources:
+    limits:
+      cpu: 100m
+      memory: 1Gi
+    requests:
+      cpu: 50m
+      memory: 512Mi
 
 applicationSet:
-    nodeSelector:
-        node-role: ops
+  nodeSelector:
+    node-role: system
 
-    resources:
-        limits:
-            cpu: 128m
-            memory: 128Mi
-        requests:
-            cpu: 64m
-            memory: 64Mi
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+notifications:
+  nodeSelector:
+    node-role: system
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+commitServer:
+  nodeSelector:
+    node-role: system
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi

@@ -16,14 +16,20 @@
 
 # Terraform files
 /.terraform/
+/env/*/.terraform/
 /terraform/argocd-apps/
 .terraform.lock.hcl
 
+# AWS files
+/aws
+
 # Project files
+.env
 /env/*/.initialized
 /env/*/.kubeconfig
 /env/*/secret.sh
-/env/*/*.json
+/env/*/cred.*.json
+/env/*/output.*.json
 /env/*/*.tfstate
 /env/*/*.tfstate.backup
 /certs/

@@ -1,15 +1,19 @@
 #
 # ArgoCD environment variables
 #
-export ARGOCD_SERVER_SECRET="{secret_key}"
-export ARGOCD_ADMIN_PASSWORD="{password}"
+# Development ArgoCD server secret
+export ARGOCD_SERVER_SECRET="999999999"
+# Development ArgoCD administrator password
+export ARGOCD_ADMIN_PASSWORD="999999999"
 
 #
 # Grafana environment variables
 #
-export GRAFANA_ADMIN_PASSWORD="{password}"
+# Development Grafana administrator password
+export GRAFANA_ADMIN_PASSWORD="999999999"
 
 #
-# Qdrant environment variables
+# Cert-Manager
 #
-export QDRANT_PASSWORD="{password}"
+# [template:contacts]: Certificate issuer support email
+export ISSUER_EMAIL="{{cookiecutter.issuer_email}}"

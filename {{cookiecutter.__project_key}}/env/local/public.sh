@@ -1,42 +1,36 @@
 #
-# Subdomains
+# Minikube environment configurations
 #
-export OPERATIONS_SUBDOMAIN="ops"
-export AUTH_SUBDOMAIN="auth"
+# Minikube virtual CPUs available
+export MINIKUBE_CPUS=4
+# Minikube VM RAM available
+export MINIKUBE_MEMORY=16384
 
 #
 # ArgoCD environment configurations
 #
+# ArgoCD project provisioning sequence
 export ARGOCD_PROJECT_SEQUENCE='[
   "system",
   "platform",
   "database",
   "management"
 ]'
-#
-# Cluster environment configurations
-#
-export GATEWAY_NODE_PORT="{{ cookiecutter.ingress_node_port }}"
-
-#
-# Qdrant environment variables
-#
-export QDRANT_LOG_LEVEL="INFO"
-export QDRANT_MAX_REQUEST_SIZE_MB="1000"
+# [template:argocd]: ArgoCD Terraform provisioner project stage wait time
+export PROJECT_UPDATE_WAIT="{{cookiecutter.project_update_wait}}"
 
 #
 # Implementation Providers
 #
+# Reactor provisioner provider
 export PROVISIONER_PROVIDER=terraform
+# Reactor kubernetes provider
 export KUBERNETES_PROVIDER=minikube
+# Reactor DNS provider
 export DNS_PROVIDER=host
-
-#
-# Cert-Manager
-#
-export ISSUER_EMAIL="{{ cookiecutter.admin_email }}"
 
 #
 # Grafana environment variables
 #
-export GRAFANA_ADMIN_USER="admin"
+# [template:grafana]: Grafana administrative user name
+export GRAFANA_ADMIN_USER="{{cookiecutter.grafana_admin_user}}"

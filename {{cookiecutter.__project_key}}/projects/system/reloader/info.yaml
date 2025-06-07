@@ -3,4 +3,4 @@ enabled: ["all"]
 name: reloader
 repository: "https://stakater.github.io/stakater-charts"
 chart: reloader
-version: v1.0.5
+version: 2.1.3
