@@ -31,7 +31,7 @@ function test_docker_images () {
       "public.ecr.aws/docker/library/redis" \
       "ghcr.io/dexidp/dex" \
       "quay.io/argoproj/argocd" \
-      "stakater/reloader"
+      "ghcr.io/stakater/reloader"
   }
   wait verify_core_images 30
 }
