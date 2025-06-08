@@ -2,9 +2,9 @@
 # Minikube environment configurations
 #
 # Minikube virtual CPUs available
-export MINIKUBE_CPUS=4
+export MINIKUBE_CPUS=2
 # Minikube VM RAM available
-export MINIKUBE_MEMORY=16384
+export MINIKUBE_MEMORY=6144
 
 #
 # ArgoCD environment configurations
